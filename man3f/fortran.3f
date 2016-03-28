@@ -40,7 +40,7 @@ GNU Fortran offers the -std=f95 and -std=gnu options, which can be used to restr
      
 .SH INTRINSIC PROCEDURES
 
-The detailed manual page for each procedure can be found in \fIsection 3f\fP of the man pages, and read using the command \fBman 3p <procedure>\fP.
+The detailed manual page for each procedure can be found in \fIsection 3f\fP of the man pages, and read using the command \fBman 3f <procedure>\fP.
 
 \fBabort\fP \- Abort the program
 
