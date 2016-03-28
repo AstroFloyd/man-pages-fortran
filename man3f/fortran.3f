@@ -25,8 +25,8 @@
 
 .SH DESCRIPTION
 
-The description of the Fortran language in these manpages has been taken from the GNU Fortran Compiler documentation (\fIhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP).  They contain elements that follow the Fortran
-standard, and elements that are GNU extentions.  This standard is indicated in the detailed man pages for each procedure.
+The description of the Fortran language in these manpages has been taken from the GNU Fortran Compiler documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP).  They contain elements that follow the Fortran
+standard, and elements that are GNU extentions.  This standard is indicated in the detailed man pages for each procedure.  The Free Software Foundation, Inc. is the copyright holder of this documentation (see \fBCOPYRIGHT\fP below).
 
 The intrinsic procedures provided by GNU Fortran include all of the intrinsic procedures required by the Fortran 95 standard, a set of intrinsic procedures for backwards compatibility with G77, and a selection of intrinsic procedures from the Fortran 2003 and Fortran 2008 standards. Any conflict between a description here and a description in either the Fortran 95 standard, the Fortran 2003 standard or the Fortran 2008 standard is unintentional, and the standard(s) should be considered authoritative.
 
@@ -35,6 +35,7 @@ The enumeration of the KIND type parameter is processor defined in the Fortran 9
 Many of the intrinsic procedures take one or more optional arguments. This document follows the convention used in the Fortran 95 standard, and denotes such arguments by square brackets.
 
 GNU Fortran offers the -std=f95 and -std=gnu options, which can be used to restrict the set of intrinsic procedures to a given standard. By default, gfortran sets the -std=gnu option, and so all intrinsic procedures described here are accepted. There is one caveat. For a select group of intrinsic procedures, g77 implemented both a function and a subroutine. Both classes have been implemented in gfortran for backwards compatibility with g77. It is noted here that these functions and subroutines cannot be intermixed in a given subprogram. In the descriptions that follow, the applicable standard for each intrinsic procedure is noted. 
+
 
 
      
@@ -596,4 +597,32 @@ OpenMP modules: \fBomp_lib\fP and \fBOMP_LIB_KINDS\fP
 
 OpenACC module: \fBopenacc\fP
 
-\fB
+
+.SH COPYRIGHT
+Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``Funding Free Software'', the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+
+(a) The FSF's Front-Cover Text is:
+
+     A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+     You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.
+
+
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+
