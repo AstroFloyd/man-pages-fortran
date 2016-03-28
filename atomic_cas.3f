@@ -1,0 +1,73 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.-->
+.PP
+
+
+.TH "ATOMIC_CAS" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+\fIATOMIC_CAS\fP compares the variable \fIATOM\fP with the value of
+\fICOMPARE\fP; if the value is the same, \fIATOM\fP is set to the value
+of \fINEW\fP. Additionally, \fIOLD\fP is set to the value of \fIATOM\fP
+that was used for the comparison.  When \fISTAT\fP is present and the invokation
+was successful, it is assigned the value 0. If it is present and the invokation
+has failed, it is assigned a positive value; in particular, for a coindexed
+\fIATOM\fP, if the remote image has stopped, it is assigned the value of
+\fIISO_FORTRAN_ENV\fP's \fISTAT_STOPPED_IMAGE\fP and if the remote image has
+failed, the value \fISTAT_FAILED_IMAGE\fP.
+
+.SH STANDARD
+TS 18508 or later
+
+.SH CLASS
+Atomic subroutine
+
+.SH SYNTAX
+\fICALL ATOMIC_CAS (ATOM, OLD, COMPARE, NEW [, STAT])\fP
+
+.SH ARGUMENTS
+
+.PP
+\fIATOM\fP    Scalar coarray or coindexed variable of either integer
+type with \fIATOMIC_INT_KIND\fP kind or logical type with
+\fIATOMIC_LOGICAL_KIND\fP kind. 
+\fIOLD\fP     Scalar of the same type and kind as \fIATOM\fP. 
+\fICOMPARE\fP Scalar variable of the same type and kind as
+\fIATOM\fP. 
+\fINEW\fP     Scalar variable of the same type as \fIATOM\fP. If kind
+is different, the value is converted to the kind of \fIATOM\fP. 
+\fISTAT\fP    (optional) Scalar default-kind integer variable.
+
+.SH EXAMPLE
+
+          program atomic
+            use iso_fortran_env
+            logical(atomic_logical_kind) :: atom[*], prev
+            call atomic_cas (atom[1], prev, .false., .true.))
+          end program atomic
+.SH SEE ALSO
+ATOMIC_DEFINE, ATOMIC_REF, ISO_FORTRAN_ENV
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

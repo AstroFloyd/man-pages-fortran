@@ -1,0 +1,89 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.-->
+.PP
+
+
+.TH "CHMOD" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+\fICHMOD\fP changes the permissions of a file.
+
+.PP
+This intrinsic is provided in both subroutine and function forms; however,
+only one form can be used in any given program unit.
+
+.SH STANDARD
+GNU extension
+
+.SH CLASS
+Subroutine, function
+
+.SH SYNTAX
+
+.PP
+\fICALL CHMOD(NAME, MODE[, STATUS])\fP
+\fISTATUS = CHMOD(NAME, MODE)\fP
+
+.SH ARGUMENTS
+
+.PP
+
+\fINAME\fP Scalar \fICHARACTER\fP of default kind with the
+file name. Trailing blanks are ignored unless the character
+\fIachar(0)\fP is present, then all characters up to and excluding
+\fIachar(0)\fP are used as the file name.
+
+.PP
+\fIMODE\fP Scalar \fICHARACTER\fP of default kind giving the
+file permission. \fIMODE\fP uses the same syntax as the \fIchmod\fP utility
+as defined by the POSIX standard. The argument shall either be a string of
+a nonnegative octal number or a symbolic mode.
+
+.PP
+\fISTATUS\fP (optional) scalar \fIINTEGER\fP, which is
+\fI0\fP on success and nonzero otherwise.
+
+.SH RETURN VALUE
+In either syntax, \fISTATUS\fP is set to \fI0\fP on success and nonzero
+otherwise.
+
+.SH EXAMPLE
+\fICHMOD\fP as subroutine
+          program chmod_test
+            implicit none
+            integer :: status
+            call chmod('test.dat','u+x',status)
+            print *, 'Status: ', status
+          end program chmod_test
+.PP
+\fICHMOD\fP as function:
+          program chmod_test
+            implicit none
+            integer :: status
+            status = chmod('test.dat','u+x')
+            print *, 'Status: ', status
+          end program chmod_test
+     
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

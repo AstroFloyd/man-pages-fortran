@@ -1,0 +1,599 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.
+.PP
+
+
+.TH "FORTRAN" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+
+.SH DESCRIPTION
+
+The description of the Fortran language in these manpages has been taken from the GNU Fortran Compiler documentation (\fIhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP).  They contain elements that follow the Fortran
+standard, and elements that are GNU extentions.  This standard is indicated in the detailed man pages for each procedure.
+
+The intrinsic procedures provided by GNU Fortran include all of the intrinsic procedures required by the Fortran 95 standard, a set of intrinsic procedures for backwards compatibility with G77, and a selection of intrinsic procedures from the Fortran 2003 and Fortran 2008 standards. Any conflict between a description here and a description in either the Fortran 95 standard, the Fortran 2003 standard or the Fortran 2008 standard is unintentional, and the standard(s) should be considered authoritative.
+
+The enumeration of the KIND type parameter is processor defined in the Fortran 95 standard. GNU Fortran defines the default integer type and default real type by INTEGER(KIND=4) and REAL(KIND=4), respectively. The standard mandates that both data types shall have another kind, which have more precision. On typical target architectures supported by gfortran, this kind type parameter is KIND=8. Hence, REAL(KIND=8) and DOUBLE PRECISION are equivalent. In the description of generic intrinsic procedures, the kind type parameter will be specified by KIND=*, and in the description of specific names for an intrinsic procedure the kind type parameter will be explicitly given (e.g., REAL(KIND=4) or REAL(KIND=8)). Finally, for brevity the optional KIND= syntax will be omitted.
+
+Many of the intrinsic procedures take one or more optional arguments. This document follows the convention used in the Fortran 95 standard, and denotes such arguments by square brackets.
+
+GNU Fortran offers the -std=f95 and -std=gnu options, which can be used to restrict the set of intrinsic procedures to a given standard. By default, gfortran sets the -std=gnu option, and so all intrinsic procedures described here are accepted. There is one caveat. For a select group of intrinsic procedures, g77 implemented both a function and a subroutine. Both classes have been implemented in gfortran for backwards compatibility with g77. It is noted here that these functions and subroutines cannot be intermixed in a given subprogram. In the descriptions that follow, the applicable standard for each intrinsic procedure is noted. 
+
+
+     
+.SH INTRINSIC PROCEDURES
+
+\fBabort\fP \- Abort the program
+
+\fBabs\fP \- Absolute value
+
+\fBaccess\fP \- Checks file access modes
+
+\fBachar\fP \- Character in \fIASCII\fP collating sequence
+
+\fBacos\fP \- Arccosine function
+
+\fBacosh\fP \- Inverse hyperbolic cosine function
+
+\fBadjustl\fP \- Left adjust a string
+
+\fBadjustr\fP \- Right adjust a string
+
+\fBaimag\fP \- Imaginary part of complex number
+
+\fBaint\fP \- Truncate to a whole number
+
+\fBalarm\fP \- Execute a routine after a given delay
+
+\fBall\fP \- All values in \fIMASK\fP along \fIDIM\fP are true
+
+\fBallocated\fP \- Status of an allocatable entity
+
+\fBand\fP \- Bitwise logical AND
+
+\fBanint\fP \- Nearest whole number
+
+\fBany\fP \- Any value in \fIMASK\fP along \fIDIM\fP is true
+
+\fBasin\fP \- Arcsine function
+
+\fBasinh\fP \- Inverse hyperbolic sine function
+
+\fBassociated\fP \- Status of a pointer or pointer/target pair
+
+\fBatan\fP \- Arctangent function
+
+\fBatan2\fP \- Arctangent function
+
+\fBatanh\fP \- Inverse hyperbolic tangent function
+
+\fBatomic_add\fP \- Atomic ADD operation
+
+\fBatomic_and\fP \- Atomic bitwise AND operation
+
+\fBatomic_cas\fP \- Atomic compare and swap
+
+\fBatomic_define\fP \- Setting a variable atomically
+
+\fBatomic_fetch_add\fP \- Atomic ADD operation with prior fetch
+
+\fBatomic_fetch_and\fP \- Atomic bitwise AND operation with prior fetch
+
+\fBatomic_fetch_or\fP \- Atomic bitwise OR operation with prior fetch
+
+\fBatomic_fetch_xor\fP \- Atomic bitwise XOR operation with prior fetch
+
+\fBatomic_or\fP \- Atomic bitwise OR operation
+
+\fBatomic_ref\fP \- Obtaining the value of a variable atomically
+
+\fBatomic_xor\fP \- Atomic bitwise OR operation
+
+\fBbacktrace\fP \- Show a backtrace
+
+\fBbessel_j0\fP \- Bessel function of the first kind of order 0
+
+\fBbessel_j1\fP \- Bessel function of the first kind of order 1
+
+\fBbessel_jn\fP \- Bessel function of the first kind
+
+\fBbessel_y0\fP \- Bessel function of the second kind of order 0
+
+\fBbessel_y1\fP \- Bessel function of the second kind of order 1
+
+\fBbessel_yn\fP \- Bessel function of the second kind
+
+\fBbge\fP \- Bitwise greater than or equal to
+
+\fBbgt\fP \- Bitwise greater than
+
+\fBbit_size\fP \- Bit size inquiry function
+
+\fBble\fP \- Bitwise less than or equal to
+
+\fBblt\fP \- Bitwise less than
+
+\fBbtest\fP \- Bit test function
+
+\fBc_associated\fP \- Status of a C pointer
+
+\fBc_f_pointer\fP \- Convert C into Fortran pointer
+
+\fBc_f_procpointer\fP \- Convert C into Fortran procedure pointer
+
+\fBc_funloc\fP \- Obtain the C address of a procedure
+
+\fBc_loc\fP \- Obtain the C address of an object
+
+\fBc_sizeof\fP \- Size in bytes of an expression
+
+\fBceiling\fP \- Integer ceiling function
+
+\fBchar\fP \- Character conversion function
+
+\fBchdir\fP \- Change working directory
+
+\fBchmod\fP \- Change access permissions of files
+
+\fBcmplx\fP \- Complex conversion function
+
+\fBco_broadcast\fP \- Copy a value to all images the current set of images
+
+\fBco_max\fP \- Maximal value on the current set of images
+
+\fBco_min\fP \- Minimal value on the current set of images
+
+\fBco_reduce\fP \- Reduction of values on the current set of images
+
+\fBco_sum\fP \- Sum of values on the current set of images
+
+\fBcommand_argument_count\fP \- Get number of command line arguments
+
+\fBcompiler_options\fP \- Options passed to the compiler
+
+\fBcompiler_version\fP \- Compiler version string
+
+\fBcomplex\fP \- Complex conversion function
+
+\fBconjg\fP \- Complex conjugate function
+
+\fBcos\fP \- Cosine function
+
+\fBcosh\fP \- Hyperbolic cosine function
+
+\fBcount\fP \- Count function
+
+\fBcpu_time\fP \- CPU elapsed time in seconds
+
+\fBcshift\fP \- Circular shift elements of an array
+
+\fBctime\fP \- Convert a time into a string
+
+\fBdate_and_time\fP \- Date and time subroutine
+
+\fBdble\fP \- Double conversion function
+
+\fBdcmplx\fP \- Double complex conversion function
+
+\fBdigits\fP \- Significant binary digits function
+
+\fBdim\fP \- Positive difference
+
+\fBdot_product\fP \- Dot product function
+
+\fBdprod\fP \- Double product function
+
+\fBdreal\fP \- Double real part function
+
+\fBdshiftl\fP \- Combined left shift
+
+\fBdshiftr\fP \- Combined right shift
+
+\fBdtime\fP \- Execution time subroutine (or function)
+
+\fBeoshift\fP \- End-off shift elements of an array
+
+\fBepsilon\fP \- Epsilon function
+
+\fBerf\fP \- Error function
+
+\fBerfc\fP \- Error function
+
+\fBerfc_scaled\fP \- Error function
+
+\fBetime\fP \- Execution time subroutine (or function)
+
+\fBexecute_command_line\fP \- Execute a shell command
+
+\fBexit\fP \- Exit the program with status.
+
+\fBexp\fP \- Exponential function
+
+\fBexponent\fP \- Exponent function
+
+\fBextends_type_of\fP \-  Query dynamic type for extension
+
+\fBfdate\fP \- Get the current time as a string
+
+\fBfget\fP \- Read a single character in stream mode from stdin
+
+\fBfgetc\fP \- Read a single character in stream mode
+
+\fBfloor\fP \- Integer floor function
+
+\fBflush\fP \- Flush I/O unit(s)
+
+\fBfnum\fP \- File number function
+
+\fBfput\fP \- Write a single character in stream mode to stdout
+
+\fBfputc\fP \- Write a single character in stream mode
+
+\fBfraction\fP \- Fractional part of the model representation
+
+\fBfree\fP \- Frees memory
+
+\fBfseek\fP \- Low level file positioning subroutine
+
+\fBfstat\fP \- Get file status
+
+\fBftell\fP \- Current stream position
+
+\fBgamma\fP \- Gamma function
+
+\fBgerror\fP \- Get last system error message
+
+\fBgetarg\fP \- Get command line arguments
+
+\fBget_command\fP \- Get the entire command line
+
+\fBget_command_argument\fP \- Get command line arguments
+
+\fBgetcwd\fP \- Get current working directory
+
+\fBgetenv\fP \- Get an environmental variable
+
+\fBget_environment_variable\fP \- Get an environmental variable
+
+\fBgetgid\fP \- Group ID function
+
+\fBgetlog\fP \- Get login name
+
+\fBgetpid\fP \- Process ID function
+
+\fBgetuid\fP \- User ID function
+
+\fBgmtime\fP \- Convert time to GMT info
+
+\fBhostnm\fP \- Get system host name
+
+\fBhuge\fP \- Largest number of a kind
+
+\fBhypot\fP \- Euclidean distance function
+
+\fBiachar\fP \- Code in \fIASCII\fP collating sequence
+
+\fBiall\fP \- Bitwise AND of array elements
+
+\fBiand\fP \- Bitwise logical and
+
+\fBiany\fP \- Bitwise OR of array elements
+
+\fBiargc\fP \- Get the number of command line arguments
+
+\fBibclr\fP \- Clear bit
+
+\fBibits\fP \- Bit extraction
+
+\fBibset\fP \- Set bit
+
+\fBichar\fP \- Character-to-integer conversion function
+
+\fBidate\fP \- Get current local time subroutine (day/month/year)
+
+\fBieor\fP \- Bitwise logical exclusive or
+
+\fBierrno\fP \- Get the last system error number
+
+\fBimage_index\fP \- Function that converts a cosubscript to an image index
+
+\fBindex\fP \- Position of a substring within a string
+
+\fBint\fP \- Convert to integer type
+
+\fBint2\fP \- Convert to 16-bit integer type
+
+\fBint8\fP \- Convert to 64-bit integer type
+
+\fBior\fP \- Bitwise logical or
+
+\fBiparity\fP \- Bitwise XOR of array elements
+
+\fBirand\fP \- Integer pseudo-random number
+
+\fBis_iostat_end\fP \- Test for end-of-file value
+
+\fBis_iostat_eor\fP \- Test for end-of-record value
+
+\fBisatty\fP \- Whether a unit is a terminal device.
+
+\fBishft\fP \- Shift bits
+
+\fBishftc\fP \- Shift bits circularly
+
+\fBisnan\fP \- Test for a NaN
+
+\fBitime\fP \- Get current local time subroutine (hour/minutes/seconds)
+
+\fBkill\fP \- Send a signal to a process
+
+\fBkind\fP \- Kind of an entity
+
+\fBlbound\fP \- Lower dimension bounds of an array
+
+\fBlcobound\fP \- Lower codimension bounds of an array
+
+\fBleadz\fP \- Number of leading zero bits of an integer
+
+\fBlen\fP \- Length of a character entity
+
+\fBlen_trim\fP \- Length of a character entity without trailing blank characters
+
+\fBlge\fP \- Lexical greater than or equal
+
+\fBlgt\fP \- Lexical greater than
+
+\fBlink\fP \- Create a hard link
+
+\fBlle\fP \- Lexical less than or equal
+
+\fBllt\fP \- Lexical less than
+
+\fBlnblnk\fP \- Index of the last non-blank character in a string
+
+\fBloc\fP \- Returns the address of a variable
+
+\fBlog\fP \- Natural logarithm function
+
+\fBlog10\fP \- Base 10 logarithm function
+
+\fBlog_gamma\fP \- Logarithm of the Gamma function
+
+\fBlogical\fP \- Convert to logical type
+
+\fBlong\fP \- Convert to integer type
+
+\fBlshift\fP \- Left shift bits
+
+\fBlstat\fP \- Get file status
+
+\fBltime\fP \- Convert time to local time info
+
+\fBmalloc\fP \- Allocate dynamic memory
+
+\fBmaskl\fP \- Left justified mask
+
+\fBmaskr\fP \- Right justified mask
+
+\fBmatmul\fP \- matrix multiplication
+
+\fBmax\fP \- Maximum value of an argument list
+
+\fBmaxexponent\fP \- Maximum exponent of a real kind
+
+\fBmaxloc\fP \- Location of the maximum value within an array
+
+\fBmaxval\fP \- Maximum value of an array
+
+\fBmclock\fP \- Time function
+
+\fBmclock8\fP \- Time function (64-bit)
+
+\fBmerge\fP \- Merge variables
+
+\fBmerge_bits\fP \- Merge of bits under mask
+
+\fBmin\fP \- Minimum value of an argument list
+
+\fBminexponent\fP \- Minimum exponent of a real kind
+
+\fBminloc\fP \- Location of the minimum value within an array
+
+\fBminval\fP \- Minimum value of an array
+
+\fBmod\fP \- Remainder function
+
+\fBmodulo\fP \- Modulo function
+
+\fBmove_alloc\fP \- Move allocation from one object to another
+
+\fBmvbits\fP \- Move bits from one integer to another
+
+\fBnearest\fP \- Nearest representable number
+
+\fBnew_line\fP \- New line character
+
+\fBnint\fP \- Nearest whole number
+
+\fBnorm2\fP \- Euclidean vector norms
+
+\fBnot\fP \- Logical negation
+
+\fBnull\fP \- Function that returns an disassociated pointer
+
+\fBnum_images\fP \- Function that returns the number of images
+
+\fBor\fP \- Bitwise logical OR
+
+\fBpack\fP \- Pack an array into an array of rank one
+
+\fBparity\fP \- Reduction with exclusive OR
+
+\fBperror\fP \- Print system error message
+
+\fBpopcnt\fP \- Number of bits set
+
+\fBpoppar\fP \- Parity of the number of bits set
+
+\fBprecision\fP \- Decimal precision of a real kind
+
+\fBpresent\fP \- Determine whether an optional dummy argument is specified
+
+\fBproduct\fP \- Product of array elements
+
+\fBradix\fP \- Base of a model number
+
+\fBran\fP \- Real pseudo-random number
+
+\fBrand\fP \- Real pseudo-random number
+
+\fBrandom_number\fP \- Pseudo-random number
+
+\fBrandom_seed\fP \- Initialize a pseudo-random number sequence
+
+\fBrange\fP \- Decimal exponent range
+
+\fBrank\fP \- Rank of a data object
+
+\fBreal\fP \- Convert to real type
+
+\fBrename\fP \- Rename a file
+
+\fBrepeat\fP \- Repeated string concatenation
+
+\fBreshape\fP \- Function to reshape an array
+
+\fBrrspacing\fP \- Reciprocal of the relative spacing
+
+\fBrshift\fP \- Right shift bits
+
+\fBsame_type_as\fP \-  Query dynamic types for equality
+
+\fBscale\fP \- Scale a real value
+
+\fBscan\fP \- Scan a string for the presence of a set of characters
+
+\fBsecnds\fP \- Time function
+
+\fBsecond\fP \- CPU time function
+
+\fBselected_char_kind\fP \- Choose character kind
+
+\fBselected_int_kind\fP \- Choose integer kind
+
+\fBselected_real_kind\fP \- Choose real kind
+
+\fBset_exponent\fP \- Set the exponent of the model
+
+\fBshape\fP \- Determine the shape of an array
+
+\fBshifta\fP \- Right shift with fill
+
+\fBshiftl\fP \- Left shift
+
+\fBshiftr\fP \- Right shift
+
+\fBsign\fP \- Sign copying function
+
+\fBsignal\fP \- Signal handling subroutine (or function)
+
+\fBsin\fP \- Sine function
+
+\fBsinh\fP \- Hyperbolic sine function
+
+\fBsize\fP \- Determine the size of an array
+
+\fBsizeof\fP \- Size in bytes of an expression
+
+\fBsleep\fP \- Sleep for the specified number of seconds
+
+\fBspacing\fP \- Smallest distance between two numbers of a given type
+
+\fBspread\fP \- Add a dimension to an array
+
+\fBsqrt\fP \- Square-root function
+
+\fBsrand\fP \- Reinitialize the random number generator
+
+\fBstat\fP \- Get file status
+
+\fBstorage_size\fP \- Storage size in bits
+
+\fBsum\fP \- Sum of array elements
+
+\fBsymlnk\fP \- Create a symbolic link
+
+\fBsystem\fP \- Execute a shell command
+
+\fBsystem_clock\fP \- Time function
+
+\fBtan\fP \- Tangent function
+
+\fBtanh\fP \- Hyperbolic tangent function
+
+\fBthis_image\fP \- Function that returns the cosubscript index of this image
+
+\fBtime\fP \- Time function
+
+\fBtime8\fP \- Time function (64-bit)
+
+\fBtiny\fP \- Smallest positive number of a real kind
+
+\fBtrailz\fP \- Number of trailing zero bits of an integer
+
+\fBtransfer\fP \- Transfer bit patterns
+
+\fBtranspose\fP \- Transpose an array of rank two
+
+\fBtrim\fP \- Remove trailing blank characters of a string
+
+\fBttynam\fP \- Get the name of a terminal device.
+
+\fBubound\fP \- Upper dimension bounds of an array
+
+\fBucobound\fP \- Upper codimension bounds of an array
+
+\fBumask\fP \- Set the file creation mask
+
+\fBunlink\fP \- Remove a file from the file system
+
+\fBunpack\fP \- Unpack an array of rank one into an array
+
+\fBverify\fP \- Scan a string for characters not a given set
+
+\fBxor\fP \- Bitwise logical exclusive OR
+
+
+
+.SH INTRINSIC MODULES
+
+Detailed manpages are not yet available for the intrinsic modules.
+
+\fBiso_fortran_env\fP
+
+\fBiso_c_binding\fP
+
+IEEE modules: \fBieee_exceptions\fP, \fBIEEE_ARITHMETIC\fP, and \fBIEEE_FEATURES\fP
+
+OpenMP modules: \fBomp_lib\fP and \fBOMP_LIB_KINDS\fP
+
+OpenACC module: \fBopenacc\fP
+
+\fB

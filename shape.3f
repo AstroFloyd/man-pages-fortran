@@ -1,0 +1,68 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.-->
+.PP
+
+
+.TH "SHAPE" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+Determines the shape of an array.
+
+.SH STANDARD
+Fortran 95 and later, with \fIKIND\fP argument Fortran 2003 and later
+
+.SH CLASS
+Inquiry function
+
+.SH SYNTAX
+\fIRESULT = SHAPE(SOURCE [, KIND])\fP
+
+.SH ARGUMENTS
+
+.PP
+\fISOURCE\fP Shall be an array or scalar of any type. 
+If \fISOURCE\fP is a pointer it must be associated and allocatable
+arrays must be allocated. 
+\fIKIND\fP   (Optional) An \fIINTEGER\fP initialization
+expression indicating the kind parameter of the result.
+
+.SH RETURN VALUE
+An \fIINTEGER\fP array of rank one with as many elements as \fISOURCE\fP
+has dimensions. The elements of the resulting array correspond to the extend
+of \fISOURCE\fP along the respective dimensions. If \fISOURCE\fP is a scalar,
+the result is the rank one array of size zero. If \fIKIND\fP is absent, the
+return value has the default integer kind otherwise the specified kind.
+
+.SH EXAMPLE
+
+          PROGRAM test_shape
+            INTEGER, DIMENSION(-1:1, -1:2) :: A
+            WRITE(*,*) SHAPE(A)             ! (/ 3, 4 /)
+            WRITE(*,*) SIZE(SHAPE(42))      ! (/ /)
+          END PROGRAM
+.SH SEE ALSO
+RESHAPE, SIZE
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

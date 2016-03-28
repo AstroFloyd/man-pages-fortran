@@ -1,0 +1,79 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.-->
+.PP
+
+
+.TH "MINLOC" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+Determines the location of the element in the array with the minimum
+value, or, if the \fIDIM\fP argument is supplied, determines the
+locations of the minimum element along each row of the array in the
+\fIDIM\fP direction.  If \fIMASK\fP is present, only the elements for
+which \fIMASK\fP is \fI.TRUE.\fP are considered.  If more than one
+element in the array has the minimum value, the location returned is
+that of the first such element in array element order.  If the array has
+zero size, or all of the elements of \fIMASK\fP are \fI.FALSE.\fP, then
+the result is an array of zeroes.  Similarly, if \fIDIM\fP is supplied
+and all of the elements of \fIMASK\fP along a given row are zero, the
+result value for that row is zero.
+
+.SH STANDARD
+Fortran 95 and later
+
+.SH CLASS
+Transformational function
+
+.SH SYNTAX
+
+.PP
+\fIRESULT = MINLOC(ARRAY, DIM [, MASK])\fP
+\fIRESULT = MINLOC(ARRAY [, MASK])\fP
+
+.SH ARGUMENTS
+
+.PP
+\fIARRAY\fP Shall be an array of type \fIINTEGER\fP or
+\fIREAL\fP. 
+\fIDIM\fP   (Optional) Shall be a scalar of type
+\fIINTEGER\fP, with a value between one and the rank of \fIARRAY\fP,
+inclusive.  It may not be an optional dummy argument. 
+\fIMASK\fP  Shall be an array of type \fILOGICAL\fP,
+and conformable with \fIARRAY\fP.
+
+.SH RETURN VALUE
+If \fIDIM\fP is absent, the result is a rank-one array with a length
+equal to the rank of \fIARRAY\fP.  If \fIDIM\fP is present, the result
+is an array with a rank one less than the rank of \fIARRAY\fP, and a
+size corresponding to the size of \fIARRAY\fP with the \fIDIM\fP
+dimension removed.  If \fIDIM\fP is present and \fIARRAY\fP has a rank
+of one, the result is a scalar.  In all cases, the result is of default
+\fIINTEGER\fP type.
+
+.SH SEE ALSO
+MIN, MINVAL
+
+   
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

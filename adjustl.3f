@@ -1,0 +1,63 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+."      funds for GNU development.-->
+.PP
+
+
+.TH "ADJUSTL" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+\fIADJUSTL(STRING)\fP will left adjust a string by removing leading spaces. 
+Spaces are inserted at the end of the string as needed.
+
+.SH STANDARD
+Fortran 90 and later
+
+.SH CLASS
+Elemental function
+
+.SH SYNTAX
+\fIRESULT = ADJUSTL(STRING)\fP
+
+.SH ARGUMENTS
+
+.PP
+\fISTRING\fP The type shall be \fICHARACTER\fP.
+
+.SH RETURN VALUE
+The return value is of type \fICHARACTER\fP and of the same kind as
+\fISTRING\fP where leading spaces are removed and the same number of
+spaces are inserted on the end of \fISTRING\fP.
+
+.SH EXAMPLE
+
+          program test_adjustl
+            character(len=20) :: str = '   gfortran'
+            str = adjustl(str)
+            print *, str
+          end program test_adjustl
+.SH SEE ALSO
+ADJUSTR, TRIM
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+
