@@ -42,7 +42,7 @@ do
 	      -e 's/\((b) The FSF\)/.\" \1/g' \
 	      -e 's/\(     You have freedom to copy and modify this GNU Manual, like GNU\)/.\" \1/g' \
 	      -e 's/\(     software.  Copies published by the Free Software Foundation raise\)/.\" \1/g' \
-	      -e 's/\(     funds for GNU development.-->\)/.\" \1/g' \
+	      -e 's/\(     funds for GNU development.\)/.\" \1/g' \
 	      \
 	      -e '/<div class="node">/d' \
 	      -e 's/^.*<p>/\.PP\n/g' \

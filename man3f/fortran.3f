@@ -25,7 +25,7 @@
 
 .SH DESCRIPTION
 
-The description of the Fortran language in these manpages has been taken from the GNU Fortran Compiler documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP).  They contain elements that follow the Fortran
+The description of the Fortran language in these man pages has been taken from the GNU Fortran Compiler documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP).  They contain elements that follow the Fortran
 standard, and elements that are GNU extentions.  This standard is indicated in the detailed man pages for each procedure.  The Free Software Foundation, Inc. is the copyright holder of this documentation (see \fBCOPYRIGHT\fP below).
 
 The intrinsic procedures provided by GNU Fortran include all of the intrinsic procedures required by the Fortran 95 standard, a set of intrinsic procedures for backwards compatibility with G77, and a selection of intrinsic procedures from the Fortran 2003 and Fortran 2008 standards. Any conflict between a description here and a description in either the Fortran 95 standard, the Fortran 2003 standard or the Fortran 2008 standard is unintentional, and the standard(s) should be considered authoritative.
@@ -585,7 +585,7 @@ GNU Fortran offers the -std=f95 and -std=gnu options, which can be used to restr
 
 .SH INTRINSIC MODULES
 
-Detailed manpages are not yet available for the intrinsic modules.
+Detailed man pages are not yet available for the intrinsic modules.
 
 \fBiso_fortran_env\fP
 
@@ -624,5 +624,5 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 
 .SH AUTHOR
 .PP
-This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a man page by AstroFloyd (\fBhttp://astrofloyd.org\fP).
 
