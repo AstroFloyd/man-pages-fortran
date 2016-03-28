@@ -1,4 +1,4 @@
-# Man Fortran #
+# Man pages Fortran #
 
 Man pages for the Fortran language
 
