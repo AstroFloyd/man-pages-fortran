@@ -1,0 +1,86 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.
+.PP
+
+
+.TH "ANY" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+\fIANY(MASK [, DIM])\fP determines if any of the values in the logical array
+\fIMASK\fP along dimension \fIDIM\fP are \fI.TRUE.\fP.
+
+.SH STANDARD
+Fortran 95 and later
+
+.SH CLASS
+Transformational function
+
+.SH SYNTAX
+\fIRESULT = ANY(MASK [, DIM])\fP
+
+.SH ARGUMENTS
+
+.PP
+\fIMASK\fP The type of the argument shall be \fILOGICAL\fP and
+it shall not be scalar. 
+\fIDIM\fP  (Optional) \fIDIM\fP shall be a scalar integer
+with a value that lies between one and the rank of \fIMASK\fP.
+
+.SH RETURN VALUE
+\fIANY(MASK)\fP returns a scalar value of type \fILOGICAL\fP where
+the kind type parameter is the same as the kind type parameter of
+\fIMASK\fP.  If \fIDIM\fP is present, then \fIANY(MASK, DIM)\fP returns
+an array with the rank of \fIMASK\fP minus 1.  The shape is determined from
+the shape of \fIMASK\fP where the \fIDIM\fP dimension is elided.
+
+          
+
+\fB(A)\fP \fIANY(MASK)\fP is true if any element of \fIMASK\fP is true;
+otherwise, it is false.  It also is false if \fIMASK\fP has zero size. 
+
+\fB(B)\fP If the rank of \fIMASK\fP is one, then \fIANY(MASK,DIM)\fP is equivalent
+to \fIANY(MASK)\fP.  If the rank is greater than one, then \fIANY(MASK,DIM)\fP
+is determined by applying \fIANY\fP to the array sections. 
+
+
+.SH EXAMPLE
+
+          program test_any
+            logical l
+            l = any((/.true., .true., .true./))
+            print *, l
+            call section
+            contains
+              subroutine section
+                integer a(2,3), b(2,3)
+                a = 1
+                b = 1
+                b(2,2) = 2
+                print *, any(a .eq. b, 1)
+                print *, any(a .eq. b, 2)
+              end subroutine section
+          end program test_any
+     
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

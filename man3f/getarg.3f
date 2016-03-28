@@ -1,0 +1,84 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.
+.PP
+
+
+.TH "GETARG" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+Retrieve the \fIPOS\fP-th argument that was passed on the
+command line when the containing program was invoked.
+
+.PP
+This intrinsic routine is provided for backwards compatibility with
+GNU Fortran 77.  In new code, programmers should consider the use of
+the GET_COMMAND_ARGUMENT intrinsic defined by the Fortran 2003
+standard.
+
+.SH STANDARD
+GNU extension
+
+.SH CLASS
+Subroutine
+
+.SH SYNTAX
+\fICALL GETARG(POS, VALUE)\fP
+
+.SH ARGUMENTS
+
+.PP
+\fIPOS\fP   Shall be of type \fIINTEGER\fP and not wider than
+the default integer kind; \fIPOS\fP \geq 0
+\fIVALUE\fP Shall be of type \fICHARACTER\fP and of default
+kind. 
+\fIVALUE\fP Shall be of type \fICHARACTER\fP.
+
+.SH RETURN VALUE
+After \fIGETARG\fP returns, the \fIVALUE\fP argument holds the
+\fIPOS\fPth command line argument. If \fIVALUE\fP can not hold the
+argument, it is truncated to fit the length of \fIVALUE\fP. If there are
+less than \fIPOS\fP arguments specified at the command line, \fIVALUE\fP
+will be filled with blanks. If \fIPOS\fP = 0, \fIVALUE\fP is set
+to the name of the program (on systems that support this feature).
+
+.SH EXAMPLE
+
+          PROGRAM test_getarg
+            INTEGER :: i
+            CHARACTER(len=32) :: arg
+          
+            DO i = 1, iargc()
+              CALL getarg(i, arg)
+              WRITE (*,*) arg
+            END DO
+          END PROGRAM
+.SH SEE ALSO
+GNU Fortran 77 compatibility function: IARGC
+
+.PP
+Fortran 2003 functions and subroutines: GET_COMMAND,
+GET_COMMAND_ARGUMENT, COMMAND_ARGUMENT_COUNT
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+

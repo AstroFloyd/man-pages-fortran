@@ -9,10 +9,10 @@ for infile in ABORT.html ABS.html ACCESS.html ACHAR.html ACOS.html ACOSH.html AD
 do
     outfile=`echo ${infile} | sed -e 's/\.html/\.3f/g'  -e 's/\(.*\)/\L\1/' -e 's/_005f/_/g'`
     
-    echo ${infile} ${outfile}
+    echo "Converting  ${infile}  ->  ${outfile}"
     
     
-    cat ${infile} \
+    cat html/${infile} \
 	| sed -e '/<meta /d' \
 	      -e '/<link /d' \
 	      -e '/<html /d' \
@@ -113,9 +113,9 @@ do
 	      -e 's/<\/tr>//g' \
 	      -e 's/ See also <a href="Fortran-2003-status.html#Fortran-2003-status">Fortran 2003 status.//g' \
 	      -e 's/<a href="INDEX-intrinsic.html#INDEX-intrinsic">INDEX intrinsic/INDEX/g' \
-	      > ${outfile}
+	      > man3f/${outfile}
 done
 
 # The html page for INDEX() was not called index.html for obvious reasons:
-mv -f index-intrinsic.3f index.3f
+mv -f man3f/index-intrinsic.3f man3f/index.3f
 

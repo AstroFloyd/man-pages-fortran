@@ -1,0 +1,69 @@
+." Copyright (C) 1999-2015 Free Software Foundation, Inc.
+
+." Permission is granted to copy, distribute and/or modify this document
+." under the terms of the GNU Free Documentation License, Version 1.3 or
+." any later version published by the Free Software Foundation; with the
+." Invariant Sections being ``Funding Free Software'', the Front-Cover
+." Texts being (a) (see below), and with the Back-Cover Texts being (b)
+." (see below).  A copy of the license is included in the section entitled
+." ``GNU Free Documentation License''.
+
+." (a) The FSF's Front-Cover Text is:
+
+."      A GNU Manual
+
+." (b) The FSF's Back-Cover Text is:
+
+."      You have freedom to copy and modify this GNU Manual, like GNU
+."      software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.
+.PP
+
+
+.TH "LSTAT" "3f" "Sun Mar 27 2016" "Intrinsic Fortran procedures" "Intrinsic Fortran procedures"
+
+     
+.SH DESCRIPTION
+\fILSTAT\fP is identical to STAT, except that if path is a
+symbolic link, then the link itself is statted, not the file that it
+refers to.
+
+.PP
+The elements in \fIVALUES\fP are the same as described by STAT.
+
+.PP
+This intrinsic is provided in both subroutine and function forms;
+however, only one form can be used in any given program unit.
+
+.SH STANDARD
+GNU extension
+
+.SH CLASS
+Subroutine, function
+
+.SH SYNTAX
+
+.PP
+\fICALL LSTAT(NAME, VALUES [, STATUS])\fP
+\fISTATUS = LSTAT(NAME, VALUES)\fP
+
+.SH ARGUMENTS
+
+.PP
+\fINAME\fP   The type shall be \fICHARACTER\fP of the default
+kind, a valid path within the file system. 
+\fIVALUES\fP The type shall be \fIINTEGER(4), DIMENSION(13)\fP. 
+\fISTATUS\fP (Optional) status flag of type \fIINTEGER(4)\fP. 
+Returns 0 on success and a system specific error code otherwise.
+
+.SH EXAMPLE
+See STAT for an example.
+
+.SH SEE ALSO
+To stat an open file: FSTAT, to stat a file: STAT
+
+
+.SH AUTHOR
+.PP
+This information was taken from the GFortran documentation (\fBhttps://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/\fP) and converted to a manpage by AstroFloyd (\fBhttp://astrofloyd.org\fP).
+
