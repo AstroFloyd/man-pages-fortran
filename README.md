@@ -3,9 +3,13 @@
 Man pages for the Fortran language
 
 
-The description of the Fortran language in these manpages has been taken from the GNU Fortran Compiler documentation (https://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/).  They contain elements that follow the Fortran standard, and elements that are GNU extentions.  This standard is indicated in the detailed man pages for each procedure.  The Free Software Foundation, Inc. is the copyright holder of this documentation (see copyright statement below).  The documentation was converted from HTML to man-page format by AstroFloyd (http://astrofloyd.org).
+The description of the Fortran language in these man pages has been taken from the [GNU Fortran Compiler documentation](https://gcc.gnu.org/onlinedocs/gcc-5.3.0/gfortran/).  They contain elements that follow the Fortran standard, and elements that are GNU extentions.  This standard is indicated in the detailed man page for each procedure.  The Free Software Foundation, Inc. is the copyright holder of this documentation (see copyright statement below).  The documentation was converted from HTML to man-page format by [AstroFloyd](http://astrofloyd.org).
 
 
+Man-pages-fortran is available in [Arch Linux](https://aur.archlinux.org/packages/man-pages-fortran/) and [Gentoo Linux](https://gitweb.gentoo.org/user/AstroFloyd.git/tree/sys-apps/man-pages-fortran).
+
+
+---
 
 Copyright (C) 1999-2015 Free Software Foundation, Inc.
 
