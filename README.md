@@ -19,7 +19,7 @@ Man-pages-fortran is available in
 Documentation for intrinsic Fortran procedures for Fortran-tags in Emacs
 
 
-As a spin off, I converted the man pages to Fortran comments, where only the SYNTAX lines are uncommented and function as a prototype definition.  Because these lines are uncommented, they can be found by [Fortran-tags](https://github.com/raullaasner/fortran-tags) for [GNU Emacs](https://www.gnu.org/software/emacs/).  When the directory `fit/` is included when generating the `FORTAGS` "database" file for Fortran-tags, the program will see the uncommented lines as a definition of the functions and subroutines and you will be carried to the source file when pressing `M-.`, where the procedure's syntax and examples can be found.
+As a spin off, I converted the man pages to Fortran comments, where only the SYNTAX lines are uncommented and function as a prototype definition.  Because these lines are uncommented, they can be found by [Fortran-tags](https://github.com/raullaasner/fortran-tags) for [GNU Emacs](https://www.gnu.org/software/emacs/).  When the directory `fortran-intrinsic-tags/` is included when generating the `FORTAGS` "database" file for Fortran-tags, the program will see the uncommented lines as a definition of the functions and subroutines and you will be carried to the source file when pressing `M-.`, where the procedure's syntax and examples can be found.
 
 
 ---
